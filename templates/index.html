@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Money</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+</head>
+<body>
+    <div id="wrapper">
+        <div id="boxes">
+            <p>Your Gold: {{request.session.gold}}</p>
+            <div class="place">
+                <form action="/process_money" method="POST" class="location">
+                    {%csrf_token%}
+                    <h2>Farm</h2>
+                    <p>Earn 10-20 Gold</p>
+                    <input type="hidden" name="location" value="farm">
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+            <div class="place">
+                <form action="/process_money" method="POST" class="location">
+                    {%csrf_token%}
+                    <h2>Cave</h2>
+                    <p>Earn 5-10 Gold</p>
+                    <input type="hidden" name="location" value="cave">
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+            <div class="place">
+                <form action="/process_money" method="POST" class="location">
+                    {%csrf_token%}
+                    <h2>House</h2>
+                    <p>Earn 2-5 Gold</p>
+                    <input type="hidden" name="location" value="house">
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+            <div class="place">
+                <form action="/process_money" method="POST" class="location">
+                    {%csrf_token%}
+                    <h2>Casino</h2>
+                    <p>Earn/Take 0-50 Gold</p>
+                    <input type="hidden" name="location" value="casino">
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+            <div class="place">
+                <form action="/process_money" method="POST" class="location">
+                    {%csrf_token%}
+                    <h2>Reset Gold</h2>
+                    <input type="hidden" name="location" value="reset">
+                    <input type="submit" value="Reset Gold!">
+                </form>
+            </div>
+        </div>
+        <p>Activities:</p>
+        <div id="textarea">
+            <textarea name="activities" id="activities" cols="270" rows="20">
+                {% for activity in activities reversed%}
+                {{activity}}
+                {% endfor %}
+            </textarea>
+        </div>
+    </div>
+</body>
+</html>

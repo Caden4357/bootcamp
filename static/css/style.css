@@ -1,0 +1,24 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#boxes{
+    width: 970px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+.place{
+    width: 300px;
+    margin: 40px;
+    padding: 40px;
+    background-color: aliceblue;
+    border: 2px solid black;
+}
+.place, h2, p{
+    padding: 40px;
+    color: black;
+}
+#textarea{
+    color: blue;
+}
